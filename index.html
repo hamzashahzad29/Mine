@@ -1,1 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Get Well Soon, My Love</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Great Vibes', cursive;
+      background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+      color: #880e4f;
+      overflow-x: hidden;
+
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 20px;
+    }
+
+    header h1 {
+      font-size: 3em;
+      animation: fadeInDown 2s ease-in-out;
+    }
+
+    .heart {
+      font-size: 80px;
+      color: #e91e63;
+      animation: heartbeat 1.5s infinite;
+      margin: 20px auto;
+    }
+
+    .clouds {
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      background: url('https://i.imgur.com/wG5rL6M.png') repeat-x;
+      animation: cloudMove 60s linear infinite;
+      opacity: 0.2;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .photo {
+      margin-top: 30px;
+    }
+
+    .photo img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .message {
+      margin: 40px auto;
+      max-width: 600px;
+      font-size: 1.5em;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .scroll-button {
+      margin-top: 20px;
+      font-size: 1em;
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .scroll-button:hover {
+      background-color: #c2185b;
+    }
+
+    .audio-control {
+      margin: 20px;
+    }
+
+    .audio-control button {
+      background-color: transparent;
+      border: 2px solid #880e4f;
+      padding: 8px 16px;
+      border-radius: 20px;
+      color: #880e4f;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+
+
+.heart {
+  width: 20px;
+  height: 20px;
+  background-color: #ff5ca2;
+  position: absolute;
+  animation: floatUp 4s ease-in forwards;
+  clip-path: polygon(
+    50% 0%, 
+    61% 6%, 
+    68% 15%, 
+    75% 25%, 
+    80% 36%, 
+    82% 50%, 
+    80% 63%, 
+    75% 75%, 
+    68% 85%, 
+    61% 92%, 
+    50% 100%, 
+    39% 92%, 
+    32% 85%, 
+    25% 75%, 
+    20% 63%, 
+    18% 50%, 
+    20% 36%, 
+    25% 25%, 
+    32% 15%, 
+    39% 6%
+  );
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-200px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      25%, 75% { transform: scale(1.1); }
+      50% { transform: scale(1.2); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes cloudMove {
+      from { background-position: 0 0; }
+      to { background-position: 10000px 0; }
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 1em;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #880e4f;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2em;
+      }
+
+      .message {
+        font-size: 1.2em;
+        padding: 0 10px;
+      }
+
+      .photo img {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+
+    <div class="hearts" id="hearts-container"></div>
+
+<script>
+  const heartsContainer = document.getElementById('hearts-container');
+
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left = `${Math.random() * 100}vw`;
+    heart.style.bottom = `0px`;
+    heartsContainer.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 4000);
+  }
+
+  setInterval(createHeart, 100); // Adjust frequency for intensity
+</script>
+
+    
+
+    <div class="hearts">
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+</div>
+
+
+  <div class="clouds"></div>
+
+  <header>
+    <h1>Get Well Soon, My Love 💖</h1>
+    <div class="heart">❤️</div>
+    <button class="scroll-button" onclick="document.getElementById('message').scrollIntoView({ behavior: 'smooth' });">
+      Read My Message
+    </button>
+  </header>
+
+  
+
+    <div id="message" class="message">
+      <p>
+      <center>
+         Dear Mine
+      </center>
+        Hey sweetheart, I know you're not feeling your best right now, but just remember how strong and beautiful you are.
+        Every heartbeat of mine is a prayer for your speedy recovery. Rest well, and let love heal you.Seeing you unwell breaks my heart, but I know that the same strength, grace, and fire that make you the woman I fell in love with will guide you through this moment too.
+I wish I could take away your pain, but until then, I'll be your warmth, your calm, your smile, and your strength.
+Take all the time you need to rest, heal, and come back even stronger. I miss your laughter, your silly jokes, your touch—but more than anything, I miss the feeling of knowing you're okay.
+Until you're back to your radiant self, I'll be right here, loving you harder every single day.
+Get well soon, my beautiful wifeyy. 💕
+      </p>
+    </div>
+
+    <div class="audio-control">
+      <audio id="bg-music" autoplay loop muted>
+        <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      <button onclick="toggleMute()">🔊 Toggle Music</button>
+    </div>
+  </div>
+
+  <footer>
+    Made with ❤️ just for Mimi</br>
+    #MH 
+  </footer>
+
+  <script>
+    function toggleMute() {
+      const music = document.getElementById("bg-music");
+      music.muted = !music.muted;
+    }
+  </script>
+
+</body>
+</html>
 
